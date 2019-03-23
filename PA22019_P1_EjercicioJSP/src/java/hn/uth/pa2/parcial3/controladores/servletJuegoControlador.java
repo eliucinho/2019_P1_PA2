@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author eliucinho
  */
-@WebServlet(name = "servletJuegoControlador", urlPatterns = {"servletJuegoControlador"})
+@WebServlet(name = "servletJuegoControlador", urlPatterns = {"/servletJuegoControlador"})
 public class servletJuegoControlador extends HttpServlet {
 
     /**
@@ -45,9 +45,9 @@ public class servletJuegoControlador extends HttpServlet {
         String fraseExito="";
         String fraseError="";
         
-        if (noIntento!=1) {
+        if (noIntento>0) {
             String fraseFormulaAlmacenada=request.getSession().getAttribute("fraseFormula").toString();
-            int respuestaUsuario=Integer.parseInt(request.getSession().getAttribute("respuestaUsuario").toString());
+            int respuestaUsuario=Integer.parseInt(request.getParameter("respuestaUsuario").toString());;
             int resultadoFormulaAlmacenada=Integer.parseInt(request.getSession().getAttribute("resultadoFormula").toString());
             
             if (respuestaUsuario==resultadoFormulaAlmacenada) {
@@ -57,7 +57,10 @@ public class servletJuegoControlador extends HttpServlet {
                 noError++;
                 fraseError="Respuesta erronea: "+fraseFormulaAlmacenada+"="+resultadoFormulaAlmacenada;
             }
-            
+            noIntento++;
+        }
+       
+        if (noIntento==0) {
             noIntento++;
         }
         

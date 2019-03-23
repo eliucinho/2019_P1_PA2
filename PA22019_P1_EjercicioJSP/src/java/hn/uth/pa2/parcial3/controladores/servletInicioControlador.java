@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author eliucinho
  */
-@WebServlet(name = "servletInicioControlador", urlPatterns = {"servletInicioControlador"})
+@WebServlet(name = "servletInicioControlador", urlPatterns = {"/servletInicioControlador"})
 public class servletInicioControlador extends HttpServlet {
 
     /**
@@ -34,7 +34,7 @@ public class servletInicioControlador extends HttpServlet {
         String usuario=request.getParameter("usuario");
         int noExito=0;
         int noError=0;
-        int noIntento=1;
+        int noIntento=0;
 
         request.getSession().setAttribute("usuario", usuario);
         request.getSession().setAttribute("noExito", noExito);
