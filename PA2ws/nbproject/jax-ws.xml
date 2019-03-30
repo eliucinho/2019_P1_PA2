@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="empleadosUTH">
+      <implementation-class>hn.uth.pa2.parcial3.ws.empleadosUTH</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>
